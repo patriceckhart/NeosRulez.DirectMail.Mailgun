@@ -26,6 +26,12 @@ class MailgunApiController extends ActionController
      */
     protected $queueRepository;
 
+    /**
+     * @Flow\Inject
+     * @var \NeosRulez\DirectMail\Domain\Repository\RecipientRepository
+     */
+    protected $recipientRepository;
+
 
     /**
      * @return void
@@ -35,6 +41,12 @@ class MailgunApiController extends ActionController
         $queues = $this->queueRepository->findQueuesInProgress();
         if($queues) {
             foreach ($queues as $queue) {
+                $recipientLists = $queue->getRecipientlist();
+                $count = 0;
+                foreach ($recipientLists as $recipientList) {
+                    $count = $count + $this->recipientRepository->countActiveByRecipientList($recipientList);
+                }
+                $queue->total = $count;
                 $queue->acceptedEvents = count($this->mailgunService->getAcceptedBySubject($queue->getName()));
             }
             $this->view->assign('countQueues', count($queues));
