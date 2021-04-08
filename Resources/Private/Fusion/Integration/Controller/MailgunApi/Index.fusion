@@ -40,7 +40,7 @@ prototype(NeosRulez.DirectMail.Mailgun:Integration.MailgunApiController.Index) <
                             {queue.acceptedEvents}
                         </td>
                         <td class="neos-action">
-                            <div class="neos-pull-right" >
+                            <div @if.render={queue.acceptedEvents == 0 ? false : true} class="neos-pull-right" >
                                 <Neos.Fusion:Tag tagName="a" @children="attributes.href" attributes.class="neos-button neos-button-primary" content="<i class='fas fa-eye'></i>">
                                     <Neos.Fusion:UriBuilder package="NeosRulez.DirectMail.Mailgun" controller="MailgunApi" action="show" @children="arguments">
                                         <Neos.Fusion:DataStructure queue={queue} />
