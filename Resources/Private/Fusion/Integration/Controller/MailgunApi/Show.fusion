@@ -1,0 +1,46 @@
+include: resource://NeosRulez.DirectMail/Private/Fusion/Root.fusion
+
+NeosRulez.DirectMail.Mailgun.MailgunApiController.show = NeosRulez.DirectMail.Mailgun:Integration.MailgunApiController.Show
+
+prototype(NeosRulez.DirectMail.Mailgun:Integration.MailgunApiController.Show) < prototype(Neos.Fusion:Component) {
+
+    recipientList = ${this.recipientListRecipients ? this.recipientListRecipients : recipients}
+
+    renderer = afx`
+        <NeosRulez.DirectMail:Integration.Component.DefaultLayout title={queue.name} >
+            <p @if.render={!mailings} >{I18n.translate('NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:noTrackings')}</p>
+            <table @if.render={mailings} class="neos-table">
+                <thead>
+                <tr>
+                    <td>{I18n.translate('NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:content.event')}</td>
+                    <td>{I18n.translate('NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:content.sender')}</td>
+                    <td>{I18n.translate('NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:content.recipient')}</td>
+                    <td>{I18n.translate('NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:content.datetime')}</td>
+                </tr>
+                </thead>
+                <tbody>
+
+                <Neos.Fusion:Loop items={mailings} itemName="mailing" >
+                    <tr>
+                        <td>
+                            <span class="neos-badge" style={'background:' + (mailing.event == 'delivered' ? '#ff8700' : mailing.event == 'accepted' ? '#00a338' : mailing.event == 'failed' ? '#ff460d' : '')} >
+                                {mailing.event == 'delivered' ? I18n.translate('NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:content.status.delivered') : mailing.event == 'accepted' ? I18n.translate('NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:content.status.accepted') : mailing.event == 'failed' ? I18n.translate('NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:content.status.failed') : false}
+                            </span>
+                        </td>
+                        <td>
+                            {mailing.envelope.sender}
+                        </td>
+                        <td>
+                            {mailing.envelope.targets}
+                        </td>
+                        <td>
+                            {Date.format(mailing.timestamp, 'Y-m-d, H:i')}
+                        </td>
+                    </tr>
+                </Neos.Fusion:Loop>
+
+                </tbody>
+            </table>
+        </NeosRulez.DirectMail:Integration.Component.DefaultLayout>
+    `
+}

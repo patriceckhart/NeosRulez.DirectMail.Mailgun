@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="NeosRulez.DirectMail.Mailgun" source-language="de" datatype="plaintext">
+        <body>
+            <trans-unit id="label" xml:space="preserve">
+				<source>Mailgun Tracking</source>
+			</trans-unit>
+            <trans-unit id="description" xml:space="preserve">
+				<source>Mailings über Mailgun verfolgen</source>
+			</trans-unit>
+            <trans-unit id="noTrackings" xml:space="preserve">
+				<source>Keine Trackings verfügbar</source>
+			</trans-unit>
+            <trans-unit id="content.receive" xml:space="preserve">
+				<source>Empfangen</source>
+			</trans-unit>
+            <trans-unit id="content.event" xml:space="preserve">
+				<source>Status</source>
+			</trans-unit>
+            <trans-unit id="content.sender" xml:space="preserve">
+				<source>Absender</source>
+			</trans-unit>
+            <trans-unit id="content.recipient" xml:space="preserve">
+				<source>Empfänger</source>
+			</trans-unit>
+            <trans-unit id="content.datetime" xml:space="preserve">
+				<source>Zeitpunkt</source>
+			</trans-unit>
+            <trans-unit id="content.status.delivered" xml:space="preserve">
+				<source>Versendet</source>
+			</trans-unit>
+            <trans-unit id="content.status.accepted" xml:space="preserve">
+				<source>Empfangen</source>
+			</trans-unit>
+            <trans-unit id="content.status.failed" xml:space="preserve">
+				<source>Fehlgeschlagen</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>

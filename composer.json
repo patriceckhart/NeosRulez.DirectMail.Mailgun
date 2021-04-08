@@ -1,0 +1,21 @@
+{
+  "description": "Mailgun api connection for NeosRulez.DirectMail",
+  "type": "neos-package",
+  "name": "neosrulez/directmail-mailgun",
+  "require": {
+    "neosrulez/directmail": "*",
+    "mailgun/mailgun-php": "^3.5",
+    "kriswallsmith/buzz": "^1.2",
+    "nyholm/psr7": "^1.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "NeosRulez\\DirectMail\\Mailgun\\": "Classes/"
+    }
+  },
+  "extra": {
+    "neos": {
+      "package-key": "NeosRulez.DirectMail.Mailgun"
+    }
+  }
+}

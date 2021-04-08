@@ -1,0 +1,37 @@
+Neos:
+  Flow:
+    mvc:
+      routes:
+        'NeosRulez.DirectMail.Mailgun': true
+    error:
+      debugger:
+        recursionLimit: 20
+  Neos:
+    fusion:
+      autoInclude:
+        NeosRulez.DirectMail.Mailgun: true
+    userInterface:
+      translation:
+        autoInclude:
+          NeosRulez.DirectMail.Mailgun:
+            - Main
+            - 'Integration/*'
+    modules:
+      directMail:
+        submodules:
+          mailgun:
+            label: NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:label
+            controller: '\NeosRulez\DirectMail\Mailgun\Controller\MailgunApiController'
+            description: NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:description
+            icon: 'fas fa-at'
+            position: 'after tracking'
+            actions:
+              index:
+                label: NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:label
+                title: NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:label
+NeosRulez:
+  DirectMail:
+    Mailgun:
+      privateApiKey: 'your-api-key'
+      domain: 'foo.bar'
+      server: 'EU'

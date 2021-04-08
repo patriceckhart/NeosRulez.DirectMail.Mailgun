@@ -1,0 +1,10 @@
+privilegeTargets:
+  Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
+    'NeosRulez.DirectMail.Mailgun:MailgunApiControllerActions':
+      matcher: 'method(NeosRulez\DirectMail\Mailgun\Controller\MailgunApiController->.*Action())'
+roles:
+  'Neos.Neos:AbstractEditor':
+    privileges:
+      -
+        privilegeTarget: 'NeosRulez.DirectMail.Mailgun:MailgunApiControllerActions'
+        permission: GRANT
