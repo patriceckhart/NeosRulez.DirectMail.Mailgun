@@ -8,8 +8,8 @@ prototype(NeosRulez.DirectMail.Mailgun:Integration.MailgunApiController.Index) <
 
     renderer = afx`
         <NeosRulez.DirectMail:Integration.Component.DefaultLayout title={I18n.translate('NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:label')} >
-            <p @if.render={!queues} >{I18n.translate('NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:noTrackings')}</p>
-            <table @if.render={queues} class="neos-table">
+            <p @if.render={countQueues == 0 ? true : false} >{I18n.translate('NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:noTrackings')}</p>
+            <table @if.render={countQueues == 0 ? false : true} class="neos-table">
                 <thead>
                 <tr>
                     <td>{I18n.translate('NeosRulez.DirectMail:Integration.Controller.Queue:content.subject')}</td>

@@ -37,6 +37,7 @@ class MailgunApiController extends ActionController
             foreach ($queues as $queue) {
                 $queue->acceptedEvents = count($this->mailgunService->getAcceptedBySubject($queue->getName()));
             }
+            $this->view->assign('countQueues', count($queues));
         }
         $this->view->assign('queues', $queues);
     }
