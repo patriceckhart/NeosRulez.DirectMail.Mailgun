@@ -41,11 +41,7 @@ class MailgunApiController extends ActionController
         $queues = $this->queueRepository->findQueuesInProgress();
         if($queues) {
             foreach ($queues as $queue) {
-                $recipientLists = $queue->getRecipientlist();
-                $count = 0;
-                foreach ($recipientLists as $recipientList) {
-                    $count = $count + $this->recipientRepository->countActiveByRecipientList($recipientList);
-                }
+                $count = $queue->getTosend();
                 $queue->total = $count;
                 $queue->acceptedEvents = count($this->mailgunService->getAcceptedBySubject($queue->getName()));
             }
