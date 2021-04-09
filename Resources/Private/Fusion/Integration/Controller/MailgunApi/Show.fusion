@@ -23,7 +23,7 @@ prototype(NeosRulez.DirectMail.Mailgun:Integration.MailgunApiController.Show) < 
                 <Neos.Fusion:Loop items={mailings} itemName="mailing" >
                     <tr>
                         <td>
-                            <span class="neos-badge" style={'background:' + (mailing.event == 'delivered' ? '#ff8700' : mailing.event == 'accepted' ? '#00a338' : mailing.event == 'failed' ? '#ff460d' : '')} >
+                            <span class="neos-badge" style={'background:' + (mailing.event == 'delivered' ? '#00a338' : mailing.event == 'accepted' ? '#ff8700' : mailing.event == 'failed' ? '#ff460d' : '')} >
                                 {mailing.event == 'delivered' ? I18n.translate('NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:content.status.delivered') : mailing.event == 'accepted' ? I18n.translate('NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:content.status.accepted') : mailing.event == 'failed' ? I18n.translate('NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:content.status.failed') : false}
                             </span>
                         </td>
