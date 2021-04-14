@@ -25,7 +25,11 @@ prototype(NeosRulez.DirectMail.Mailgun:Integration.MailgunApiController.Index) <
                 <Neos.Fusion:Loop items={queues} itemName="queue" >
                     <tr>
                         <td>
-                            {queue.name}
+                            <Neos.Fusion:Tag tagName="a" @children="attributes.href" content={queue.name} >
+                                <Neos.Fusion:UriBuilder package="NeosRulez.DirectMail.Mailgun" controller="MailgunApi" action="show" @children="arguments">
+                                    <Neos.Fusion:DataStructure queue={queue} />
+                                </Neos.Fusion:UriBuilder>
+                            </Neos.Fusion:Tag>
                         </td>
                         <td>
                             {queue.nodeuri}
