@@ -29,9 +29,9 @@ Neos:
               index:
                 label: NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:label
                 title: NeosRulez.DirectMail.Mailgun:Integration.Controller.Mailgun:label
-NeosRulez:
-  DirectMail:
-    Mailgun:
-      privateApiKey: 'your-api-key'
-      domain: 'foo.bar'
-      server: 'EU'
+#NeosRulez:
+#  DirectMail:
+#    Mailgun:
+#      privateApiKey: 'your-api-key'
+#      domain: 'foo.bar'
+#      server: 'EU'
