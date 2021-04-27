@@ -39,15 +39,19 @@ class MailgunApiController extends ActionController
     public function indexAction()
     {
         $queues = $this->queueRepository->findQueuesInProgress();
+        $result = [];
         if($queues) {
             foreach ($queues as $queue) {
                 $count = $queue->getTosend();
                 $queue->total = $count;
                 $queue->acceptedEvents = count($this->mailgunService->getAcceptedBySubject($queue->getName()));
+                if($queue->acceptedEvents) {
+                    $result[] = $queue;
+                }
             }
             $this->view->assign('countQueues', count($queues));
         }
-        $this->view->assign('queues', $queues);
+        $this->view->assign('queues', $result);
     }
 
     /**
