@@ -1,4 +1,6 @@
 include: resource://NeosRulez.DirectMail/Private/Fusion/Root.fusion
+include: resource://Neos.Fusion/Private/Fusion/Root.fusion
+include: resource://Neos.Fusion.Form/Private/Fusion/Root.fusion
 
 NeosRulez.DirectMail.Mailgun.MailgunApiController.index = NeosRulez.DirectMail.Mailgun:Integration.MailgunApiController.Index
 
